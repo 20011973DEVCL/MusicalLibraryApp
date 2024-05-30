@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CountryListComponent } from './country-list/country-list.component';
-import { CountryDetailComponent } from './country-detail/country-detail.component';
+import { CountryEditComponent } from './country-edit/country-edit.component';
+import { CountryNewComponent } from './country-new/country-new.component';
 
 const routes: Routes = [
-  { path: '', component: CountryListComponent },
-  { path: 'detail/:id', component: CountryDetailComponent }
+  { path: 'country', component: CountryListComponent },
+  { path: 'country/edit/:id', component: CountryEditComponent },
+  { path: 'country/new', component: CountryNewComponent },
+  { path: '', redirectTo: 'country' ,pathMatch:'full'}
 ];
 
 @NgModule({

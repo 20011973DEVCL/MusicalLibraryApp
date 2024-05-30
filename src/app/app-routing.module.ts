@@ -11,7 +11,8 @@ const routes: Routes = [
       { path: 'genre', loadChildren: () => import('./components/genre/genre.module').then(m => m.GenreModule) },
       { path: 'album', loadChildren: () => import('./components/album/album.module').then(m => m.AlbumModule) },
       { path: 'bandsinger', loadChildren: () => import('./components/album/bandsinger/bandsinger.module').then(m => m.BandsingerModule) },
-      { path: 'songs', loadChildren: () => import('./components/songs/songs.module').then(m => m.SongsModule) }
+      { path: 'song', loadChildren: () => import('./components/songs/songs.module').then(m => m.SongsModule) },
+      { path: '**', redirectTo: '' }
     ]
   }
 ];
@@ -21,3 +22,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
