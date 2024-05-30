@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Country } from './country.interface';
 
@@ -12,7 +12,11 @@ export class CountryService {
   constructor(private http: HttpClient) { }
 
   getCountries(): Observable<Country> {
-    return this.http.get<Country>(`${this.apiUrl}/api/Country`);
+    const headers = new HttpHeaders({
+      'Custom-Header': 'HeaderValue'
+    });
+
+    return this.http.get<Country>(`${this.apiUrl}/api/Country`, { headers });
   }
 
   getCountry(id: number): Observable<any> {
